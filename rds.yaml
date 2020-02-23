@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Metadata: 
+  License: Apache-2.0
+Description: 'AWS CloudFormation Sample Template RDS_MySQL_With_Read_Replica: Sample
+  template showing how to create a highly-available, RDS DBInstance with a read replica.
+  **WARNING** This template creates an Amazon Relational Database Service database
+  instance and Amazon CloudWatch alarms. You will be billed for the AWS resources
+  used if you create a stack from this template.'
+Parameters:
+  DBUser:
+    NoEcho: 'true'
+    Description: The database admin account username
+    Type: String
+    Default: timesheet
+  DBPassword:
+    NoEcho: 'true'
+    Description: The database admin account password
+    Type: String
+    Default: timesheet
+  DBName:
+    Default: interviewexercise
+    Description: The database name
+    Type: String 
+  DBAllocatedStorage:
+    Default: '5'
+    Description: The size of the database (Gb)
+    Type: Number
+    MinValue: '5'
+    MaxValue: '1024'
+  DBInstanceClass:
+    Description: The database instance type
+    Type: String
+    Default: db.t2.small
+  Subnets1:
+    Description: Choose which subnets the RDS should be deployed to
+    Type: AWS::EC2::Subnet::Id
+  Subnets2:
+    Description: Choose which subnets the RDS should be deployed to
+    Type: AWS::EC2::Subnet::Id    
+  SecurityGroup:
+    Description: Select the Security Group to apply to the RDS
+    Type: AWS::EC2::SecurityGroup::Id
+Resources:
+  DBSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties:
+      DBSubnetGroupDescription: InterviewExerciseSubnetGroup
+      SubnetIds:
+        - !Ref Subnets1
+        - !Ref Subnets2  
+  InterviewExerciseDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: interviewexercise
+      DBName: !Ref 'DBName'
+      AllocatedStorage: !Ref 'DBAllocatedStorage'
+      DBInstanceClass: !Ref 'DBInstanceClass'
+      DBSubnetGroupName: !Ref DBSubnetGroup
+      MasterUsername: !Ref 'DBUser'
+      MasterUserPassword: !Ref 'DBPassword' 
+      Engine: mysql
+      VPCSecurityGroups:
+      - !Ref SecurityGroup
+
+Outputs:
+  InterviewExerciseDBJDBCConnectionString:
+    Description: JDBC connection string for the master database
+    Value: !Join ['', ['jdbc:mysql://', !GetAtt [InterviewExerciseDB, Endpoint.Address], ':',
+        !GetAtt [InterviewExerciseDB, Endpoint.Port], /, !Ref 'DBName']]

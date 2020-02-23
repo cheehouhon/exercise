@@ -1,0 +1,49 @@
+Description: >
+
+
+  This template deploys then a HA ECS cluster using an AutoScaling Group, with 
+  ECS hosts distributed across multiple Availability Zones. 
+
+  Finally, it deploys a pair of example ECS services from containers published in 
+  Amazon EC2 Container Registry (Amazon ECR).
+
+  Author: Chee Hou Hon <cheehouhon@gmail.com>
+
+Resources:
+  ALB:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chee-interview-exercise.s3.amazonaws.com/interview-CF/ALB.yaml
+      Parameters:
+        EnvironmentName: !Ref AWS::StackName
+        VPC: !ImportValue VPC
+        Subnets: !ImportValue PublicSubnets
+        SecurityGroup: !ImportValue LoadBalancerSecurityGroup
+
+  ECS:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chee-interview-exercise.s3.amazonaws.com/interview-CF/ecs-cluster.yaml
+      Parameters:
+        EnvironmentName: !Ref AWS::StackName
+        InstanceType: t2.large
+        ClusterSize: 1
+        VPC: !ImportValue VPC
+        SecurityGroup: !ImportValue ECSHostSecurityGroup
+        Subnets: !ImportValue PrivateSubnets
+
+  InterviewExercise:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chee-interview-exercise.s3.amazonaws.com/interview-CF/service.yaml
+      Parameters:
+        VPC: !ImportValue VPC
+        Cluster: !GetAtt ECS.Outputs.Cluster
+        DesiredCount: 1
+        Listener: !GetAtt ALB.Outputs.Listener
+        Path: /
+
+Outputs:
+  InterviewExerciseUrl:
+    Description: The URL endpoint for the product service
+    Value: !Join ["/", [!GetAtt ALB.Outputs.LoadBalancerUrl, "interviewexercise"]]
