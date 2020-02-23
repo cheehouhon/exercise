@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="container">
+
+            <img class="mx-auto d-block p-2" src="../static/gt-logo-green.png">
+            <h1 class="text-center font-weight-bold">TimeSheets</h1>
+            <form method="POST" action="">
+                <br>
+                <div class="form-label-group">
+                    <input id="f-name" class="form-control" type="text" name="f-name" placeholder="First Name" required>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <input id="l-name" class="form-control" type="text" name="l-name" placeholder="Last Name" required>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <input id="email" class="form-control" type="text" name="email" placeholder="Email" required>
+                </div>
+                <br>
+                <p>Week starting:</p>
+                <div class="form-label-group">
+                    <input class="form-control" type="date" id="date" name="date" required>
+                </div>
+                <div class="row">
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>MON</strong></p>
+                        <input class="form-control text-center" id="hrs-mon" name="hrs-mon"value="8" required>
+                    </div>
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>TUE</strong></p>
+                        <input class="form-control text-center" id="hrs-tue" name="hrs-tue" value="8" required>
+                    </div>
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>WED</strong></p>
+                        <input class="form-control text-center" id="hrs-wed" name="hrs-wed" value="8" required>
+                    </div>
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>THU</strong></p>
+                        <input class="form-control text-center" id="hrs-thu" name="hrs-thu" value="8" required>
+                    </div>
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>FRI</strong></p>
+                        <input class="form-control text-center" id="hrs-fri" name="hrs-fri" value="8" required>
+                    </div>
+                    <div class="col-2 p-4">
+                        <p class="text-center"><strong>EXTRA</strong></p>
+                        <input class="form-control text-center" id="hrs-extra" name="hrs-extra" value="0" required>
+                    </div>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
+            </form>          
+        </div>
+{% endblock %}

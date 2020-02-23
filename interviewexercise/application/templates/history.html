@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="container">
+            <img class="mx-auto d-block p-2" src="../static/gt-logo-green.png">
+            <h1 class="text-center font-weight-bold">TimeSheets</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mon</th>
+                        <th scope="col">Tue</th>
+                        <th scope="col">Wed</th>
+                        <th scope="col">Thu</th>
+                        <th scope="col">Fri</th>
+                        <th scope="col">Extra</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for timesheet in timesheets %}
+                    <tr>
+                        <th scope="row">{{ timesheet[0] }}</th>
+                        <td>{{ timesheet[1] }}</td>
+                        <td>{{ timesheet[2] }}</td>
+                        <td>{{ timesheet[3] }}</td>
+                        <td>{{ timesheet[4] }}</td>
+                        <td>{{ timesheet[5] }}</td>
+                        <td>{{ timesheet[6] }}</td>
+                        <td>{{ timesheet[7] }}</td>
+                        <td>{{ timesheet[8] }}</td>
+                        <td>{{ timesheet[9] }}</td>
+                        <td>{{ timesheet[10] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+{% endblock %}
