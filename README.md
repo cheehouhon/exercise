@@ -43,7 +43,7 @@ aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
 10.) Map Alias of the output of Load Balancer to your Route 53 Record.
 https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-records/
 
-# This is the one that's currently running:
+# Application is currently hosted on:
 http://application.cheelabs.com
 
 11.) To cleanup, just delete all the CF stacks created in Cloudformation
