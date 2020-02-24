@@ -46,6 +46,8 @@ https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-rec
 # This is the one that's currently running:
 http://application.cheelabs.com
 
+11.) To cleanup, just delete all the CF stacks created in Cloudformation
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html
 
 ## Notes:
 Since docker-compose.yml doesn’t completely work on ECS. I have to make a few changes.
