@@ -35,7 +35,7 @@ docker push <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 ```
 
-9.) Deploy SERVICE.yml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
+9.) Deploy ALB_SERVICE_ECS.yaml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
 ```bash
 aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
 ``` 
