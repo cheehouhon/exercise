@@ -43,11 +43,12 @@ aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
 10.) Map Alias of the output of Load Balancer to your Route 53 Record.
 https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-records/
 
-# Application is currently hosted on:
-http://application.cheelabs.com
 
 11.) To cleanup, just delete all the CF stacks created in Cloudformation
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html
+
+# Application is currently hosted on:
+http://application.cheelabs.com
 
 ## Notes:
 Since docker-compose.yml doesn’t completely work on ECS. I have to make a few changes.
