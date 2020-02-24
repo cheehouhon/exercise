@@ -11,7 +11,7 @@ git clone https://github.com/cheehouhon/exercise/
 aws cloudformation deploy --template-file VPC_RDS.yml
 ```
 3. Grab the RDS endpoint: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-endpoint-find.html
-4. Update the mysql host in exercise/interviewexercise/application/app.py with the RDS endpoint you created.
+4. Update the mysql host in exercise/interviewexercise/application/app.py with the RDS endpoint created earlier.
 ```bash
 Example: host = "RDS-NAME.us-east-1.rds.amazonaws.com
 ```
