@@ -6,7 +6,7 @@
 git clone https://github.com/cheehouhon/exercise/
 ```
 1. Configure AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
-2. Deploy VPC_RDS.yaml via Cloudformation, this will give us the VPC, and RDS.
+2. Deploy VPC_RDS.yaml via Cloudformation, this will give us the VPC, RDS, and security group.
 ```bash
 aws cloudformation deploy --template-file VPC_RDS.yml
 ```
@@ -35,7 +35,7 @@ docker push <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 ```
 
-9.) Deploy ALB_RDS_ECS.yml via Cloudformation, this will give us ALB, RDS, ECS Cluster, and container task
+9.) Deploy SERVICE.yml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
 ```bash
 aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
 ``` 
@@ -57,7 +57,7 @@ I need to create a database on RDS.
 ```python
 # Create database
 db = mysql.connect(
-        host = "tiiv88mn8jz27i.cvjptpuqa6ut.us-east-1.rds.amazonaws.com",
+        host = "RDSNAME.RDSNAME.us-east-1.rds.amazonaws.com",
         user = "timesheet",
         password = "timesheet",
     )
