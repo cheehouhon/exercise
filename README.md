@@ -44,4 +44,4 @@ aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
 https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-records/
 
 # This is the one that's currently running:
-application.cheelabs.com
+http://application.cheelabs.com
