@@ -50,7 +50,7 @@ http://application.cheelabs.com
 ## Notes:
 Since docker-compose.yml doesn’t completely work on ECS. I have to make a few changes.
 
-In app.py:
+1.) In app.py:
 I need to create a database on RDS.
 ```python
 # Create database
@@ -62,5 +62,8 @@ db = mysql.connect(
 dbcur = db.cursor()
 dbcur.execute("CREATE DATABASE IF NOT EXISTS timesheet")
 ```
+2.) Hostname need to be changed to the RDS endpoint.
+3.) Since docker-compose tells the host and container ports to listen on 5000, I added EXPOSE 5000 to the Dockerfile:
+
 
 
