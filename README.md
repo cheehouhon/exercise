@@ -38,9 +38,10 @@ Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.
 9.) Deploy ALB_RDS_ECS.yml via Cloudformation, this will give us ALB, RDS, ECS Cluster, and container task
 ```bash
 aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
+``` 
 
 10.) Map Alias of the output of Load Balancer to your Route 53 Record.
 https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-records/
 
-This is the one that's currently running:
+# This is the one that's currently running:
 application.cheelabs.com
