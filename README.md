@@ -1,6 +1,4 @@
-## This repository contains the CF template for the infrastructure.
-
-Foobar is a Python library for dealing with word pluralization.
+# This repository contains the CF template for the infrastructure.
 
 ## Steps to recreate the infrastructure.
 
