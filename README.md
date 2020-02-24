@@ -45,3 +45,22 @@ https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-rec
 
 # This is the one that's currently running:
 http://application.cheelabs.com
+
+
+## Notes:
+Since docker-compose.yml doesn’t completely work on ECS. I have to make a few changes.
+
+In app.py:
+I need to create a database on RDS.
+```python
+# Create database
+db = mysql.connect(
+        host = "tiiv88mn8jz27i.cvjptpuqa6ut.us-east-1.rds.amazonaws.com",
+        user = "timesheet",
+        password = "timesheet",
+    )
+dbcur = db.cursor()
+dbcur.execute("CREATE DATABASE IF NOT EXISTS timesheet")
+```
+
+
