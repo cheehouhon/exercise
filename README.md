@@ -49,6 +49,7 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delet
 
 # Application is currently hosted on:
 http://application.cheelabs.com
+(turned off to save cost, let me know if you want to see)
 
 ## Notes:
 Since docker-compose.yml doesn’t completely work on ECS. I have to make a few changes.
