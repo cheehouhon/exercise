@@ -37,7 +37,7 @@ Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.
 
 9.) Update the template url in ALB_SERVICE_ECS.yaml with the newly updated service.yaml, you can upload it to s3 <Line 38>
 ```bash
-Example: TemplateURL: https://<Your Bucket Name>.s3.amazonaws.com//service.yaml
+Example: TemplateURL: https://<Your Bucket Name>.s3.amazonaws.com/service.yaml
 ``` 
 
 10.) Deploy ALB_SERVICE_ECS.yaml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
