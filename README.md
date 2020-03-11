@@ -8,7 +8,7 @@ git clone https://github.com/cheehouhon/exercise/
 1. Configure AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 2. Deploy VPC_RDS.yaml via Cloudformation, this will give us the VPC, RDS, and security group.
 ```bash
-aws cloudformation deploy --template-file VPC_RDS.yml
+aws cloudformation deploy --template-file VPC_RDS.yml --stack-name <STACK NAME>
 ```
 3. Grab the RDS endpoint: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-endpoint-find.html
 4. Update the mysql host in exercise/interviewexercise/application/app.py with the RDS endpoint created earlier.
@@ -37,7 +37,7 @@ Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.
 
 9.) Deploy ALB_SERVICE_ECS.yaml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
 ```bash
-aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml
+aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml --stack-name <STACK NAME> --capabilities CAPABILITY_NAMED_IAM
 ``` 
 
 10.) Map Alias of the output of Load Balancer to your Route 53 Record.
