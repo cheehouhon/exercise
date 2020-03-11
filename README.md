@@ -35,16 +35,18 @@ docker push <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 Example: Image: <ACCTID>.dkr.ecr.us-east-1.amazonaws.com/interviewexercise:v1.0.1
 ```
 
-9.) Deploy ALB_SERVICE_ECS.yaml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
+9.) Update the template uyl in ALB_SERVICE_ECS.yaml with the newly updated service.yaml, you can upload it to s3
+
+10.) Deploy ALB_SERVICE_ECS.yaml via Cloudformation, this will give us ALB, ECS Cluster, and container task.
 ```bash
 aws cloudformation deploy --template-file ALB_SERVICE_ECS.yaml --stack-name <STACK NAME> --capabilities CAPABILITY_NAMED_IAM
 ``` 
 
-10.) Map Alias of the output of Load Balancer to your Route 53 Record.
+11.) Map Alias of the output of Load Balancer to your Route 53 Record.
 https://aws.amazon.com/premiumsupport/knowledge-center/route-53-create-alias-records/
 
 
-11.) To cleanup, just delete all the CF stacks created in Cloudformation
+12.) To cleanup, just delete all the CF stacks created in Cloudformation
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html
 
 # Application is currently hosted on:
