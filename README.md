@@ -61,7 +61,7 @@ I need to create a database on RDS.
 db = mysql.connect(
         host = "RDSNAME.RDSNAME.us-east-1.rds.amazonaws.com",
         user = "timesheet",
-        password = "timesheet",
+        password = "timesheet"
     )
 dbcur = db.cursor()
 dbcur.execute("CREATE DATABASE IF NOT EXISTS timesheet")
