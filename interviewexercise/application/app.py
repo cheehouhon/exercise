@@ -10,7 +10,7 @@ import mysql.connector as mysql
 db = mysql.connect(
         host = "tiiv88mn8jz27i.cvjptpuqa6ut.us-east-1.rds.amazonaws.com",
         user = "timesheet",
-        password = "timesheet",
+        password = "timesheet"
     )
 dbcur = db.cursor()
 dbcur.execute("CREATE DATABASE IF NOT EXISTS timesheet")
